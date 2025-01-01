@@ -8,7 +8,7 @@ const App = () => {
    const [userName, setUserName] = useState('Roger federer')
 
   return (
-    <main className='alignment mt-10 md:mt-14'>
+    <main className='alignment mt-10 md:mt-20'>
       <div>
         <SearchForm userName={userName} setUserName={setUserName} />
         <UserProfile userName={userName} />

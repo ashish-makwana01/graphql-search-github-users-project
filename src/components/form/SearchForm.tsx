@@ -39,7 +39,7 @@ function SearchForm({setUserName }: SearchFormProps) {
           placeholder='Search github users...'
           className='bg-background'
         />
-        <Button type='submit'>Search</Button>
+        <Button type='submit' className="tracking-wide">Search</Button>
       </form>
     </div>
   );
