@@ -1,4 +1,4 @@
-## Graphql search github users project
+## Graphql - Search GitHub users project
 
 **Project URL:**
 
