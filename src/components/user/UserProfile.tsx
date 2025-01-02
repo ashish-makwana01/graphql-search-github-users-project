@@ -4,6 +4,8 @@ import { useQuery } from "@apollo/client";
 import UserCard from "./UserCard";
 import StatsContainer from "./StatsContainer";
 import ForkedReposChart from "../charts/ForkedReposChart";
+import StarReposChart from "../charts/StarReposChart";
+import LanguageReposChart from "../charts/LanguageReposChart";
 
 type UserProfileProps = {
   userName: string;
@@ -48,7 +50,9 @@ function UserProfile({ userName }: UserProfileProps) {
       />
       {repositories.totalCount > 0 && (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 md:mt-16'>
-          <ForkedReposChart repositories={repositories.nodes} />{" "}
+          <ForkedReposChart repositories={repositories.nodes} />
+          <StarReposChart repositories={repositories.nodes} />
+          <LanguageReposChart repositories={repositories.nodes} />
         </div>
       )}
     </div>

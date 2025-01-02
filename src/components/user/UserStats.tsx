@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardDescription, CardTitle } from "../ui/card";
 
 type StatsProps = {

@@ -10,8 +10,7 @@ import { Bar, BarChart, XAxis, YAxis, CartesianGrid } from "recharts";
 
 function ForkedReposChart({ repositories }: { repositories: Repository[] }) {
   const forkedReposArray = mostForkedRepos(repositories);
-  console.log(forkedReposArray);
-
+  
   const chartConfig = {
     repo: {
       label: "Repository",
