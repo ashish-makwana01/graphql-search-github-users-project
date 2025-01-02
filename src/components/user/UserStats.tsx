@@ -11,7 +11,7 @@ function UserStats({ title, count }: StatsProps) {
     <Card>
      <div className="flex flex-row justify-between items-center p-6">
       <CardTitle className="capitalize text-lg tracking-wide">{title}</CardTitle>
-      <CardDescription>{count}</CardDescription>
+      <CardDescription className="font-medium text-base">{count}</CardDescription>
      </div>
     </Card>
   );
