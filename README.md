@@ -1,6 +1,7 @@
 ## GraphQL - Search GitHub users project
 
 **Project URL:**
+https://graphql-search-github-users-project.netlify.app/
 
 **Key Features:**
 
