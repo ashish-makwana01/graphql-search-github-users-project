@@ -1,4 +1,3 @@
-import React from "react";
 import UserStats from "./UserStats";
 
 type UserProps = {
