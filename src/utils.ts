@@ -1,54 +1,65 @@
 import { Repository } from "./types";
 
+export const mostForkedRepos = (
+  repositories: Repository[]
+): { repo: string; count: number }[] => {
+  if (repositories.length === 0) {
+    return [];
+  }
 
-export const mostForkedRepos = (repositories: Repository[]):{repo: string, count: number}[] => {
+  const forkedRepos = repositories
+    .map((repo) => {
+      return { repo: repo.name, count: repo.forkCount };
+    })
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 5);
 
-if(repositories.length === 0) {return []}
+  return forkedRepos;
+};
 
-const forkedRepos = repositories.map((repo) => {
+export const mostStarredRepos = (
+  repositories: Repository[]
+): { repo: string; stars: number }[] => {
+  if (repositories.length === 0) {
+    return [];
+  }
 
-return {repo: repo.name, count: repo.forkCount}
+  const starredRepos = repositories
+    .map((repo) => {
+      return { repo: repo.name, stars: repo.stargazerCount };
+    })
+    .sort((a, b) => b.stars - a.stars)
+    .slice(0, 5);
 
-}).sort((a, b) => b.count - a.count).slice(0, 5)
+  return starredRepos;
+};
 
-return forkedRepos;
-}
+export const popularLanguageRepos = (
+  repositories: Repository[]
+): { language: string; count: number }[] => {
+  if (repositories.length === 0) {
+    return [];
+  }
 
+  const languageMap: { [key:string]: number } = {};
 
-export const mostStarredRepos = (repositories: Repository[]): {repo: string, stars: number}[] => {
-  
- if(repositories.length === 0) {return []}
+  repositories.forEach((item) => {
+    item.languages.edges.forEach((language) => {
+      const { name } = language.node;
+      languageMap[name] = (languageMap[name] || 0) + 1;
+    });
+  });
 
- const starredRepos = repositories.map((repo) => {
-   
-  return {repo: repo.name, stars: repo.stargazerCount}
- }).sort((a, b) => b.stars - a.stars).slice(0, 5)
+  if (Object.keys(languageMap).length === 0) {
+    return [];
+  }
 
- return starredRepos;
-}
+  return Object.entries(languageMap)
+    .sort(([, a], [, b]) => b - a)
+    .map((item) => {
+      const [language, count] = item;
 
-export const popularLanguageRepos = (repositories: Repository[]): {language: string, count: number}[] => {
-
-if(repositories.length === 0) {return []}
-
-const languageMap: {[key:string]: number} = {};
-
-
-repositories.forEach((item) => {
-
-item.languages.edges.forEach((language) => {
-
-const {name} = language.node;
-languageMap[name] = (languageMap[name] || 0) + 1;
-})
-})
-
-if(Object.keys(languageMap).length === 0) {return []}
-
-return Object.entries(languageMap).sort(([,a], [,b]) => b - a).map((item) => {
-
- const [language, count] = item;
- return {language, count}
-})
-
-}
+      return { language, count };
+    })
+    .slice(0, 5);
+};

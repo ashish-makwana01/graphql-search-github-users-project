@@ -49,7 +49,7 @@ function UserProfile({ userName }: UserProfileProps) {
         gists={gists.totalCount}
       />
       {repositories.totalCount > 0 && (
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 md:mt-16'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12 mt-10 md:mt-16'>
           <ForkedReposChart repositories={repositories.nodes} />
           <StarReposChart repositories={repositories.nodes} />
           <LanguageReposChart repositories={repositories.nodes} />

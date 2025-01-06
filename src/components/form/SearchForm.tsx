@@ -8,7 +8,7 @@ type SearchFormProps = {
   setUserName: React.Dispatch<React.SetStateAction<string>>;
 };
 
-function SearchForm({setUserName }: SearchFormProps) {
+function SearchForm({ setUserName }: SearchFormProps) {
   const [text, setText] = useState("");
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
@@ -24,9 +24,10 @@ function SearchForm({setUserName }: SearchFormProps) {
 
   return (
     <div>
+      <h4 className='font-medium mb-4'>Search GitHub Users</h4>
       <form
         onSubmit={handleSearch}
-        className='flex items-center justify-center gap-x-3 w-full md:w-1/3'
+        className='flex items-center justify-center gap-x-3 w-full md:w-2/3 lg:w-1/3'
       >
         <Label htmlFor='search' className='sr-only'>
           Search
@@ -36,10 +37,12 @@ function SearchForm({setUserName }: SearchFormProps) {
           type='text'
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder='Search github users...'
-          className='bg-background'
+          placeholder='Search by username'
+          className='text-sm lg:text-base bg-background'
         />
-        <Button type='submit' className="tracking-wide">Search</Button>
+        <Button type='submit' className='tracking-wide'>
+          Search
+        </Button>
       </form>
     </div>
   );

@@ -10,7 +10,7 @@ type UserCardProps = {
 
 function UserCard({ avatarUrl, name, bio, url }: UserCardProps) {
   return (
-    <Card className='w-full md:w-1/2 mb-8'>
+    <Card className='w-full md:w-3/4 lg:w-1/2 mb-8'>
       <CardHeader className='flex flex-row gap-x-8 items-center'>
         <img
           src={avatarUrl}

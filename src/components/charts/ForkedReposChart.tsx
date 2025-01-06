@@ -20,20 +20,20 @@ function ForkedReposChart({ repositories }: { repositories: Repository[] }) {
 
   return (
     <div>
-      <h3 className="mb-4">Forked Repos</h3>
-      <ChartContainer config={chartConfig} className='w-full h-100'>
+      <h3 className="mb-6">Most Forked Repos</h3>
+      <ChartContainer config={chartConfig} className='w-full h-96'>
         <BarChart accessibilityLayer data={forkedReposArray}>
           <CartesianGrid vertical={false} />
           <XAxis
             dataKey='repo'
-            tickLine={true}
+            tickLine={false}
             tickMargin={10}
             axisLine={false}
             tickFormatter={(value) => value.slice(0, 10)}
           />
           <YAxis dataKey='count' />
           <ChartTooltip content={<ChartTooltipContent />} />
-          <Bar dataKey='count' fill="#323232" radius={4} />
+          <Bar dataKey='count' fill="#6671e5" />
         </BarChart>
       </ChartContainer>
     </div>
